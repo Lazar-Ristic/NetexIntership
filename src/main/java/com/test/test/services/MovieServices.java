@@ -1,6 +1,7 @@
 package com.test.test.services;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -40,6 +41,11 @@ public class MovieServices {
 //
     public List<MovieTable> findByTitle(String movieName, String ordering) {
         List<MovieTable> movieList = movieTableDao.findByTitle(movieName, ordering);
+        return movieList;
+    }
+
+    public List<MovieTable> findByYear(Date fromDate, Date toDate) {
+        List<MovieTable> movieList = movieTableDao.findByYear(fromDate, toDate);
         return movieList;
     }
 //

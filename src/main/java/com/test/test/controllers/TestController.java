@@ -1,5 +1,6 @@
 package com.test.test.controllers;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -46,6 +47,13 @@ public class TestController {
         List<MovieTable> movieList = movieService.findByTitle(movieName,ordering);
         return movieList;
     }
+
+    @GetMapping(value = "/movieTitleYear")
+    public List<MovieTable> findByYear(@RequestParam Date fromDate, @RequestParam Date toDate) {
+        List<MovieTable> movieList = movieService.findByYear(fromDate, toDate);
+        return movieList;
+    }
+
 //
 //    @PostMapping(value = "/movies")
 //    public String dodajNoviFilm(@RequestBody MovieTable film) {
