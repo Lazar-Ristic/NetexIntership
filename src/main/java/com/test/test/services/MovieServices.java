@@ -44,8 +44,12 @@ public class MovieServices {
         return movieList;
     }
 
-    public List<MovieTable> findByYear(Date fromDate, Date toDate) {
-        List<MovieTable> movieList = movieTableDao.findByYear(fromDate, toDate);
+    public List<MovieTable> findByDate(Date fromDate, Date toDate) {
+        List<MovieTable> movieList = movieTableDao.findByDate(fromDate, toDate);
+        return movieList;
+    }
+    public List<MovieTable> findByYear(Integer fromYear, Integer toYear, String ordering) {
+        List<MovieTable> movieList = movieTableDao.findByYear(fromYear, toYear, ordering);
         return movieList;
     }
 //

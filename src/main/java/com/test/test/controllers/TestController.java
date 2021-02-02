@@ -48,9 +48,16 @@ public class TestController {
         return movieList;
     }
 
+    @GetMapping(value = "/movieTitleDate")
+    public List<MovieTable> findByDate(@RequestParam Long fromDate, @RequestParam Long toDate) {
+        Date fromDateD = new Date(fromDate);
+        Date toDateD = new Date(toDate);
+        List<MovieTable> movieList = movieService.findByDate(fromDateD, toDateD);
+        return movieList;
+    }
     @GetMapping(value = "/movieTitleYear")
-    public List<MovieTable> findByYear(@RequestParam Date fromDate, @RequestParam Date toDate) {
-        List<MovieTable> movieList = movieService.findByYear(fromDate, toDate);
+    public List<MovieTable> findByYear(@RequestParam Integer fromYear, @RequestParam Integer toYear, @RequestParam(required = false) String ordering) {
+        List<MovieTable> movieList = movieService.findByYear(fromYear, toYear, ordering);
         return movieList;
     }
 

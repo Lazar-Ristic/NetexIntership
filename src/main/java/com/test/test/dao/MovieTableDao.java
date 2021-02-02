@@ -36,11 +36,24 @@ public class MovieTableDao {
         return listMovies;
     }
 
-    public List<MovieTable> findByYear(Date fromDate, Date toDate){
+    public List<MovieTable> findByDate(Date fromDate, Date toDate){
         JPAQueryFactory queryFactory= new JPAQueryFactory(entityManager);
         QMovieTable movieTable = new QMovieTable("movieTable");
         List<MovieTable> listMovies1 = new ArrayList<>();
-        listMovies1 = (List<MovieTable>) queryFactory.selectFrom(movieTable).where(movieTable.released.between(fromDate, toDate));
+        listMovies1 = queryFactory.selectFrom(movieTable).where(movieTable.released.between(fromDate, toDate)).fetch();
+        return listMovies1;
+    }
+
+    public List<MovieTable> findByYear(Integer fromYear, Integer toYear, String ordering){
+        JPAQueryFactory queryFactory= new JPAQueryFactory(entityManager);
+        QMovieTable movieTable = new QMovieTable("movieTable");
+        List<MovieTable> listMovies1 = new ArrayList<>();
+        if(ordering != null && ordering.equals("desc")){
+            listMovies1 = queryFactory.selectFrom(movieTable).where(movieTable.released.year().between(fromYear, toYear)).orderBy(movieTable.released.desc()).fetch();
+        } else{
+            listMovies1 = queryFactory.selectFrom(movieTable).where(movieTable.released.year().between(fromYear, toYear)).orderBy(movieTable.released.asc()).fetch();
+        }
+
         return listMovies1;
     }
 
