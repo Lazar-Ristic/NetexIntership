@@ -3,15 +3,13 @@ package com.test.test.services;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.test.test.entities.MovieTable;
 import com.test.test.dao.MovieTableDao;
 import com.test.test.dto.SearchMovieDto;
-import com.test.test.entities.MovieTable;
 import com.test.test.repository.MovieTableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
