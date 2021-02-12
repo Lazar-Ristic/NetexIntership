@@ -2,12 +2,12 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
-    <persistence-unit name="movietable" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="movie" transaction-type="RESOURCE_LOCAL">
         <!-- Persistence provider -->
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <!-- Entity classes -->
-        <class>com.test.test.entities.MovieTable</class>
+        <class>com.netex.entities.Movie</class>
 
 
         <properties>

@@ -1,4 +1,4 @@
-package com.test.test;
+package com.netex;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
